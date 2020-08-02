@@ -1,0 +1,28 @@
+.infobox {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px 5px;
+  transition: all 0.3s linear;
+}
+.infobox__title {
+}
+.infobox__cases {
+}
+.infobox__total {
+}
+
+.info-cases {
+  border-bottom: 3px solid #2962ff;
+}
+.info-recovered {
+  border-bottom: 3px solid #00c853;
+}
+.info-deaths {
+  border-bottom: 3px solid #d50000;
+}
+@media (max-width: 990px) {
+  .infobox {
+    width: 100%;
+    max-width: 100%;
+  }
+}

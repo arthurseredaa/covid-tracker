@@ -1,0 +1,21 @@
+.sidebar__table {
+  overflow-y: auto;
+  height: 350px;
+  margin: 20px 0px;
+  width: 100%;
+}
+.sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.table__row {
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar__table {
+  padding: 0.5em;
+}
+.table__row:nth-of-type(odd) {
+  background-color: #f3f2f8;
+}

@@ -1,0 +1,18 @@
+.app__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app__right-graph {
+  padding: 10px 5px;
+}
+@media (max-width: 990px) {
+  .app__right {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .app__right-card {
+    margin: 20px 0px;
+  }
+}
