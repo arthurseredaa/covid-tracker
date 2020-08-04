@@ -35,6 +35,11 @@ body {
   .app__left {
     justify-content: space-around;
   }
+  /* .app__stats {
+    flex-wrap: wrap;
+  } */
+}
+@media (max-width: 650px) {
   .app__stats {
     flex-wrap: wrap;
   }

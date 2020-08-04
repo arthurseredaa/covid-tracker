@@ -10,15 +10,21 @@
 }
 .infobox__total {
 }
+.infobox:hover {
+  border-bottom: 0px !important;
+  cursor: pointer;
+}
 
-.info-cases {
-  border-bottom: 3px solid #2962ff;
+.info-cases .infobox__cases {
+  color: #2962ff;
 }
-.info-recovered {
-  border-bottom: 3px solid #00c853;
+
+.info-recovered .infobox__cases {
+  color: #00c853;
 }
-.info-deaths {
-  border-bottom: 3px solid #d50000;
+
+.info-deaths .infobox__cases {
+  color: #d50000;
 }
 @media (max-width: 990px) {
   .infobox {

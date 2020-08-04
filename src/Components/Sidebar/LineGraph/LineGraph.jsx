@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
 import "./LineGraph.css";
+import { casesTypeColors } from "../../../utils/showDataOnMap";
 const options = {
   legend: {
     display: true,
@@ -86,12 +87,12 @@ export const LineGraph = ({ casesType, chartDay, setLoading }) => {
     fetchData();
   }, [chartDay, casesType, setLoading]);
 
-  let backgroundColor =
-    casesType === "cases"
-      ? "rgba(39,93,242, .7)"
-      : casesType === "recovered"
-      ? "rgba(0,198,82, .7)"
-      : "rgba(213,0,0, .7)";
+  // let backgroundColor =
+  //   casesType === "cases"
+  //     ? "rgba(39,93,242, .7)"
+  //     : casesType === "recovered"
+  //     ? "rgba(0,198,82, .7)"
+  //     : "rgba(213,0,0, .7)";
 
   return (
     <div className="linegraph-wrapper" style={{ margin: "10px" }}>
@@ -101,7 +102,8 @@ export const LineGraph = ({ casesType, chartDay, setLoading }) => {
             datasets: [
               {
                 label: casesType,
-                backgroundColor: backgroundColor,
+                backgroundColor: `${casesTypeColors[casesType].rgba}`,
+                borderColor: `${casesTypeColors[casesType].hex}`,
                 data: data,
               },
             ],

@@ -15,6 +15,12 @@ export const App = () => {
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
   const [loading, setLoading] = useState(false);
+  // center of Pacific Ocean
+  // const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
+  const [mapCenter, setMapCenter] = useState([34.80746, -40.4796]);
+  const [mapZoom, setMapZoom] = useState(4);
+  const [mapCountries, setMapCountries] = useState([]);
+  const [caseType, setCaseType] = useState("recovered");
 
   window.info = countryInfo;
 
@@ -32,6 +38,7 @@ export const App = () => {
         }));
         setTableData(sortData(data));
         setCountries(countries);
+        setMapCountries(data);
         setLoading(false);
       });
   };
@@ -56,6 +63,8 @@ export const App = () => {
           setCountry={setSelectedCountry}
           setCountryInfo={setCountryInfo}
           setLoading={setLoading}
+          setMapCenter={setMapCenter}
+          setMapZoom={setMapZoom}
         />
 
         <div className="app__stats">
@@ -64,24 +73,43 @@ export const App = () => {
             total={countryInfo.cases}
             cases={countryInfo.todayCases}
             customClass="info-cases"
+            caseType={"cases"}
+            setCaseType={setCaseType}
+            active={caseType === "cases"}
           />
           <InfoBox
             title="Recovered"
             total={countryInfo.recovered}
             cases={countryInfo.todayRecovered}
             customClass="info-recovered"
+            caseType={"recovered"}
+            setCaseType={setCaseType}
+            active={caseType === "recovered"}
           />
           <InfoBox
             title="Deaths"
             total={countryInfo.deaths}
             cases={countryInfo.todayDeaths}
             customClass="info-deaths"
+            caseType={"deaths"}
+            setCaseType={setCaseType}
+            active={caseType === "deaths"}
           />
         </div>
 
-        <Map />
+        <Map
+          countries={mapCountries}
+          caseType={caseType}
+          center={mapCenter}
+          zoom={mapZoom}
+        />
       </div>
-      <Sidebar tableData={tableData} setLoading={setLoading} />
+      <Sidebar
+        tableData={tableData}
+        setLoading={setLoading}
+        setCaseType={setCaseType}
+        caseType={caseType}
+      />
     </div>
   );
 };

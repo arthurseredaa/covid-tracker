@@ -12,9 +12,8 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import "./Sidebar.css";
 
-export const Sidebar = ({ tableData, setLoading }) => {
+export const Sidebar = ({ tableData, setLoading, setCaseType, caseType }) => {
   const [chartDay, setChartDay] = useState(7);
-  const [caseType, setCaseType] = useState("cases");
 
   const handleSelectChange = (e) => {
     setCaseType(e.target.value);
@@ -34,8 +33,8 @@ export const Sidebar = ({ tableData, setLoading }) => {
       </Card>
       <Card className="app__right-card app__right-graph">
         <h3>
-          Worldwide new{" "}
-          <FormControl>
+          Worldwide new {caseType}
+          {/* <FormControl>
             <Select
               value={caseType}
               displayEmpty
@@ -46,7 +45,7 @@ export const Sidebar = ({ tableData, setLoading }) => {
               <MenuItem value={"recovered"}>recovered</MenuItem>
               <MenuItem value={"deaths"}>deaths</MenuItem>
             </Select>
-          </FormControl>
+          </FormControl> */}
         </h3>
         <ToggleButtonGroup
           value={chartDay}

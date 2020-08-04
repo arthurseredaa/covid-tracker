@@ -8,6 +8,8 @@ export const Header = ({
   setCountry,
   setCountryInfo,
   setLoading,
+  setMapCenter,
+  setMapZoom,
 }) => {
   const onChangeCountry = async (e) => {
     setLoading(true);
@@ -24,6 +26,12 @@ export const Header = ({
         setCountry(country);
         setCountryInfo(data);
         setLoading(false);
+        if (country === "worldwide") {
+          setMapCenter([34.80746, -40.4796]);
+          setMapZoom(3);
+        }
+        setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+        setMapZoom(5);
       })
       .catch((e) => {
         setLoading(false);

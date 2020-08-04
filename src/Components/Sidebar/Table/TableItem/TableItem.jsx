@@ -1,4 +1,5 @@
 import React from "react";
+import { prettyPopupFormat } from "../../../../utils/prettyStatsFromat";
 
 export const TableItem = ({ index, name, cases, flagIcon }) => {
   return (
@@ -8,7 +9,7 @@ export const TableItem = ({ index, name, cases, flagIcon }) => {
         {name}
       </td>
       <td>
-        <strong>{cases}</strong>
+        <strong>{prettyPopupFormat(cases)}</strong>
       </td>
     </tr>
   );
